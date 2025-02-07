@@ -1,0 +1,75 @@
+
+.categoriesCart{
+    transition: all 0.3s ease;
+}
+
+.categoriesCart:hover{
+    transform: translateY(-5px);
+    border-color: rgb(219, 175, 2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.alert {
+    position: absolute;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+}
+
+.alert.show {
+    transform: translateX(0);
+}
+
+.general-wrapper{
+    position: relative;
+}
+
+.general-blur-wrapper::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.catalog-container{
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+}
+
+.catalog-container.show-catalog{
+    transform: translateX(0);
+}
+
+.subcategory2-container .input-group{
+    transition: all 0.3s ease;
+}
+
+.min-category-card{
+    transition: 0.3s ease-in-out;
+}
+
+.min-category-card:hover{
+    transform: translateY(-7px);
+    
+}
+
+.slick-slide > div{
+    margin: 0 5px;
+}
