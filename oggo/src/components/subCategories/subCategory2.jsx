@@ -8,8 +8,7 @@ function SubCategory2() {
   const [activeIndex, setActiveIndex] = useState(null);
   const { itemName, subItemName } = useParams();
   const data = useSelector(state => state.city.categories)
-  console.log(data[0].name);
-
+  const [itemName1, setItemName1] = useState(itemName)
 
   const showInputs = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -17,6 +16,11 @@ function SubCategory2() {
 
   const handleInputClick = (e) => {
     e.stopPropagation();
+  };
+
+  const handleSelectChange = (e) => {
+    const selectedCategory = data.find(category => category.name === e.target.value);
+    setItemName1(selectedCategory ? selectedCategory.name : itemName);    
   };
 
   return (
@@ -79,7 +83,7 @@ function SubCategory2() {
         </div>
         <div className={`input-group py-2 ${activeIndex === 3 ? 'block' : 'hidden'}`}>
           <div className="mb-[5px]">
-            <select name="Yeni" id="" className="outline-none w-full border border-gray-200 p-1 text-[15px] text-gray-500 rounded-sm" onClick={handleInputClick}>
+            <select name="Yeni" id="" className="outline-none w-full border border-gray-200 p-1 text-[15px] text-gray-500 rounded-sm" onClick={handleInputClick} onChange={handleSelectChange}>
               <option value="">
                 {itemName}
               </option>
@@ -95,9 +99,13 @@ function SubCategory2() {
 
           <div>
             <select name="" id="" className="outline-none w-full border border-gray-200 p-1 text-[15px] text-gray-500 rounded-sm" onClick={handleInputClick}>
-              <option value="">
-                {subItemName}
-              </option>
+              {
+                data.filter(category => category.name === itemName1).flatMap(category => category.categories).map((subCategory, index) => (
+                  <option key={index} value={subCategory.name}>
+                    {subCategory.name}
+                  </option>
+                ))
+              }
             </select>
           </div>
         </div>

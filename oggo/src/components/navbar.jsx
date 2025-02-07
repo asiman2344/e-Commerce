@@ -72,19 +72,19 @@ function navbar({ toggleBlur }) {
                 <div className='alert-content flex items-center w-[60%] mx-auto justify-between'>
                     <div className='flex items-top justify-between'>
                         <ul className="wrapper1 mr-[20px]">
-                            <li><Link className='text-[11px] text-[#10375c] '>Mağazalar</Link></li>
-                            <li><Link className='text-[11px] text-[#10375c] '>Yardım</Link></li>
+                            <li><Link className='text-[16px] text-[#10375c] '>Mağazalar</Link></li>
+                            <li><Link className='text-[16px] text-[#10375c] '>Yardım</Link></li>
                         </ul>
                         <ul className="wrapper2">
-                            <li><Link className='text-[11px] text-[#10375c] '>Layihə haqqında</Link></li>
-                            <li><Link className='text-[11px] text-[#10375c] '>İstifadəçi razılaşması</Link></li>
-                            <li><Link className='text-[11px] text-[#10375c] '>Məxfilik siyasəti</Link></li>
-                            <li><Link className='text-[11px] text-[#10375c] '>Reklam yerləşdirin</Link></li>
+                            <li><Link className='text-[16px] text-[#10375c] '>Layihə haqqında</Link></li>
+                            <li><Link className='text-[16px] text-[#10375c] '>İstifadəçi razılaşması</Link></li>
+                            <li><Link className='text-[16px] text-[#10375c] '>Məxfilik siyasəti</Link></li>
+                            <li><Link className='text-[16px] text-[#10375c] '>Reklam yerləşdirin</Link></li>
                         </ul>
                     </div>
 
                     <div className=''>
-                        <div className='flex items-center justify-center mb-[10px]'><p className='mr-[10px] text-[11px] text-[#10375c]'>Azərbaycan</p> <FontAwesomeIcon className='text-[11px] text-[#10375c]' icon={faGlobe} /></div>
+                        <div className='flex items-center justify-center mb-[10px]'><p className='mr-[10px] text-[16px] text-[#10375c]'>Azərbaycan</p> <FontAwesomeIcon className='text-[16px] text-[#10375c]' icon={faGlobe} /></div>
                         <div className='bg-yellow-50 p-[5px]'>
                             <p className='text-[10px] text-start text-[#10375c]'>Bizimlə əlaqə</p>
                             <p className='text-[10px] text-[#10375c]'><FontAwesomeIcon className='mr-[5px] text-[#10375c]' icon={faPhone} /> 099 669 0990</p>

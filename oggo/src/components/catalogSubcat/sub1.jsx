@@ -1,18 +1,30 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-function sub1({subcat}) {
+function sub1({ subcat, onSubCatChange }) {
+  const [subcat1, setSubcat1] = useState([]);
+
+  const showSubCategories1 = (e) => {
+    setSubcat1(e.categories);
+  };
+
+  useEffect(() => {
+    onSubCatChange(subcat1);
+  }, [subcat1, onSubCatChange]);
+
   return (
-    <ul className='w-[23%] h-[290px] overflow-y-auto custom-scrollbar'>
+    <div className='w-[23%] h-[290px] overflow-y-auto custom-scrollbar px-[20px]'>
+      <ul className='w-[100%]'>
         {
-            subcat.map((item,index)=>(
-                <li key={index} className='rounded-sm p-[5px] hover:bg-[#cbe4fa]'>
-                    <Link className='text-[11px]'>{item.name}</Link>
-                </li>
-            ))
+          subcat.map((item, index) => (
+            <li key={index} className='rounded-sm p-[5px] hover:bg-[#cbe4fa]' onMouseEnter={() => showSubCategories1(item)}>
+              <Link className='text-[18px]'>{item.name}</Link>
+            </li>
+          ))
         }
-    </ul>
-  )
+      </ul>
+    </div>
+  );
 }
 
-export default sub1
+export default sub1;

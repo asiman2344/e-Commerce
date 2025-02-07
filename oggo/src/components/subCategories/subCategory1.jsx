@@ -18,7 +18,7 @@ function SubCategory1({ data, position, itemName }) {
         <div className={`subcategory-container absolute ${getTopPosition()} bg-white rounded-lg shadow-lg`}>
             <div className="grid grid-cols-4 justify-center items-center gap-2 p-[20px]">
                 {data.categories.map((item, index) => (
-                    <div key={index} onClick={() => handleSubCategoryClick(item.name)} className='w-[250px] flex justify-between px-[5px] py-[8px] bg-slate-100 rounded-md mx-[10px]'>
+                    <div key={index} onClick={() => handleSubCategoryClick(item.name)} className='w-[250px] flex justify-between px-[5px] py-[8px] bg-slate-100 rounded-md mx-[10px] cursor-pointer'>
                         <span className='text-[15px]'>{item.name}</span>
                         <span className='text-[11px] bg-[#f3c623] flex justify-center items-center w-[25px] h-[25px] rounded-[50%]'>{item.categories.length}</span>
                     </div>
