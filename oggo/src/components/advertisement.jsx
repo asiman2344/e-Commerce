@@ -7,6 +7,8 @@ function Advertisement() {
     const [showHidden, setShowHidden] = useState(false);
     const categories = useSelector(state => state.city.categories);
     const cities = useSelector(state => state.city.city);
+    const [categories1, setCategories1] = useState('Nəqliyyat');
+    console.log(categories1);
 
 
     const handleButtonClick = () => {
@@ -27,9 +29,13 @@ function Advertisement() {
     const selectMainCategory = (e) => {
         if (e.target.value === 'Nəqliyyat') {
             setShowHidden(true);
-        }else{
-            setShowHidden(false);
+            setCategories1(e.target.value);
+        } else {
+            setShowHidden(true);
+            setCategories1(e.target.value);
         }
+
+
     }
 
     return (
@@ -56,7 +62,13 @@ function Advertisement() {
                             <div className='mb-[30px]'>
                                 <div className='mb-[10px]'><label className='text-[#10375c]' htmlFor="">Kateqoriya</label></div>
                                 <select className='border border-gray-200 w-full px-[12px] py-[7px] rounded-sm outline-none' name="" id="">
-                                    <option className='text-[#495057]' value="">Siyahıdan seçin</option>
+                                    {
+                                        categories.filter(item => item.name === categories1).map(item => (
+                                            item.categories.map((e, index) => (
+                                                <option key={index}>{e.name}</option>
+                                            ))
+                                        ))
+                                    }
                                 </select>
                             </div>
 
