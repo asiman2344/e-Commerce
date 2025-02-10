@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 function Advertisement() {
@@ -8,7 +8,8 @@ function Advertisement() {
     const categories = useSelector(state => state.city.categories);
     const cities = useSelector(state => state.city.city);
     const [categories1, setCategories1] = useState('Nəqliyyat');
-    console.log(categories1);
+    const [subCategories, setSubCategories] = useState([]);
+    console.log(categories);
 
 
     const handleButtonClick = () => {
@@ -34,10 +35,21 @@ function Advertisement() {
             setShowHidden(true);
             setCategories1(e.target.value);
         }
-
-
     }
 
+    const selectSubCategory=(e)=>{
+        categories.map(item=>{
+            item.categories.filter(category=> category.name===e.target.value).map(cat=>{
+                setSubCategories([...cat.categories]);
+            })
+        })        
+    }
+
+    useEffect(()=>{
+        console.log(subCategories,'alsmdla;asd;');
+        
+    },[subCategories])
+    
     return (
         <div className='advertisement bg-gray-200 p-[3rem] absolute top-[100px] w-[52%]'>
             <div className="advertisement-wrapper flex justify-between">
@@ -61,7 +73,7 @@ function Advertisement() {
                         <div className={showHidden ? '' : 'hidden'}>
                             <div className='mb-[30px]'>
                                 <div className='mb-[10px]'><label className='text-[#10375c]' htmlFor="">Kateqoriya</label></div>
-                                <select className='border border-gray-200 w-full px-[12px] py-[7px] rounded-sm outline-none' name="" id="">
+                                <select className='border border-gray-200 w-full px-[12px] py-[7px] rounded-sm outline-none' name="" id="" onChange={selectSubCategory}>
                                     {
                                         categories.filter(item => item.name === categories1).map(item => (
                                             item.categories.map((e, index) => (
@@ -76,6 +88,11 @@ function Advertisement() {
                                 <div className='mb-[10px]'><label className='text-[#10375c]' htmlFor="">Alt Kateqoriya</label></div>
                                 <select className='border border-gray-200 w-full px-[12px] py-[7px] rounded-sm outline-none' name="" id="">
                                     <option className='text-[#495057]' value="">Siyahıdan seçin</option>
+                                    {
+                                        subCategories.map((item,index)=>(
+                                            <option key={index} value="">{item.name}</option>
+                                        ))
+                                    }
                                 </select>
                             </div>
                         </div>
