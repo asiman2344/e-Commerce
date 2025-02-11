@@ -5,11 +5,12 @@ function Advertisement() {
     const fileInputRef = useRef(null);
     const [selectedImage, setSelectedImage] = useState(null);
     const [showHidden, setShowHidden] = useState(false);
+    const [showHidden1, setShowHidden1] = useState(false);
     const categories = useSelector(state => state.city.categories);
     const cities = useSelector(state => state.city.city);
     const [categories1, setCategories1] = useState('Nəqliyyat');
     const [subCategories, setSubCategories] = useState([]);
-    console.log(categories);
+    // console.log(categories);
 
 
     const handleButtonClick = () => {
@@ -37,19 +38,21 @@ function Advertisement() {
         }
     }
 
-    const selectSubCategory=(e)=>{
-        categories.map(item=>{
-            item.categories.filter(category=> category.name===e.target.value).map(cat=>{
+    const selectSubCategory = (e) => {
+        if (e.target.value === 'Avtomobillər') setShowHidden1(true);
+        else setShowHidden1(false);
+        categories.map(item => {
+            item.categories.filter(category => category.name === e.target.value).map(cat => {
                 setSubCategories([...cat.categories]);
             })
-        })        
+        })
     }
 
     useEffect(()=>{
-        console.log(subCategories,'alsmdla;asd;');
+        console.log(showHidden1);
         
-    },[subCategories])
-    
+    },[showHidden1])
+
     return (
         <div className='advertisement bg-gray-200 p-[3rem] absolute top-[100px] w-[52%]'>
             <div className="advertisement-wrapper flex justify-between">
@@ -89,7 +92,7 @@ function Advertisement() {
                                 <select className='border border-gray-200 w-full px-[12px] py-[7px] rounded-sm outline-none' name="" id="">
                                     <option className='text-[#495057]' value="">Siyahıdan seçin</option>
                                     {
-                                        subCategories.map((item,index)=>(
+                                        subCategories.map((item, index) => (
                                             <option key={index} value="">{item.name}</option>
                                         ))
                                     }
@@ -97,11 +100,28 @@ function Advertisement() {
                             </div>
                         </div>
 
-                        <div className='hidden'>
+                        <div className={showHidden1 ? '' : 'hidden'}>
                             <div className='mb-[30px]'>
                                 <div className='mb-[10px]'><label className='text-[#10375c]' htmlFor="">Rəng Seçin</label></div>
                                 <select className='border border-gray-200 w-full px-[12px] py-[7px] rounded-sm outline-none' name="" id="">
                                     <option className='text-[#495057]' value="">Siyahıdan seçin</option>
+                                    <option className='text-[#495057]' value="">White</option>
+                                    <option className='text-[#495057]' value="">Beige</option>
+                                    <option className='text-[#495057]' value="">Purple</option>
+                                    <option className='text-[#495057]' value="">Gray</option>
+                                    <option className='text-[#495057]' value="">Pink</option>
+                                    <option className='text-[#495057]' value="">Blue</option>
+                                    <option className='text-[#495057]' value="">Silver</option>
+                                    <option className='text-[#495057]' value="">Light Blue</option>
+                                    <option className='text-[#495057]' value="">Orange</option>
+                                    <option className='text-[#495057]' value="">Black</option>
+                                    <option className='text-[#495057]' value="">Brown</option>
+                                    <option className='text-[#495057]' value="">Red</option>
+                                    <option className='text-[#495057]' value="">Gold</option>
+                                    <option className='text-[#495057]' value="">Yellow</option>
+                                    <option className='text-[#495057]' value="">Darkred</option>
+                                    <option className='text-[#495057]' value="">Wetasphalt</option>
+                                    <option className='text-[#495057]' value="">Green</option>
                                 </select>
                             </div>
 
@@ -114,6 +134,12 @@ function Advertisement() {
                                 <div className='mb-[10px]'><label className='text-[#10375c]' htmlFor="">Yanacaq Tipi</label></div>
                                 <select className='border border-gray-200 w-full px-[12px] py-[7px] rounded-sm outline-none' name="" id="">
                                     <option className='text-[#495057]' value="">Siyahıdan seçin</option>
+                                    <option className='text-[#495057]' value="">Petrol</option>
+                                    <option className='text-[#495057]' value="">Diesel</option>
+                                    <option className='text-[#495057]' value="">Gas</option>
+                                    <option className='text-[#495057]' value="">Electric</option>
+                                    <option className='text-[#495057]' value="">Hybrid</option>
+                                    <option className='text-[#495057]' value="">Plugin Hybrid</option>
                                 </select>
                             </div>
 
@@ -121,6 +147,9 @@ function Advertisement() {
                                 <div className='mb-[10px]'><label className='text-[#10375c]' htmlFor="">Sürətlər qutusu</label></div>
                                 <select className='border border-gray-200 w-full px-[12px] py-[7px] rounded-sm outline-none' name="" id="">
                                     <option className='text-[#495057]' value="">Siyahıdan seçin</option>
+                                    <option className='text-[#495057]' value="">Manual</option>
+                                    <option className='text-[#495057]' value="">Automatic</option>
+                                    <option className='text-[#495057]' value="">Variator</option>
                                 </select>
                             </div>
 
@@ -128,6 +157,13 @@ function Advertisement() {
                                 <div className='mb-[10px]'><label className='text-[#10375c]' htmlFor="">Kuzov Növü</label></div>
                                 <select className='border border-gray-200 w-full px-[12px] py-[7px] rounded-sm outline-none' name="" id="">
                                     <option className='text-[#495057]' value="">Siyahıdan seçin</option>
+                                    <option className='text-[#495057]' value="">Sedan</option>
+                                    <option className='text-[#495057]' value="">Station Vagon</option>
+                                    <option className='text-[#495057]' value="">Hatchback</option>
+                                    <option className='text-[#495057]' value="">Coupe</option>
+                                    <option className='text-[#495057]' value="">Pickup</option>
+                                    <option className='text-[#495057]' value="">Suv/Offroad</option>
+                                    <option className='text-[#495057]' value="">Minivan</option>
                                 </select>
                             </div>
 
