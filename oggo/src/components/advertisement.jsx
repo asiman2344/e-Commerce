@@ -10,8 +10,6 @@ function Advertisement() {
     const cities = useSelector(state => state.city.city);
     const [categories1, setCategories1] = useState('Nəqliyyat');
     const [subCategories, setSubCategories] = useState([]);
-    // console.log(categories);
-
 
     const handleButtonClick = () => {
         fileInputRef.current.click();
@@ -47,11 +45,6 @@ function Advertisement() {
             })
         })
     }
-
-    useEffect(()=>{
-        console.log(showHidden1);
-        
-    },[showHidden1])
 
     return (
         <div className='advertisement bg-gray-200 p-[3rem] absolute top-[100px] w-[52%]'>
