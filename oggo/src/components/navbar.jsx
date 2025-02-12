@@ -31,13 +31,18 @@ function navbar({ toggleBlur }) {
         <div className='relative'>
             <div className='navbar p-[10px] fixed top-0 left-0 w-full z-50 bg-white'>
                 <nav className='w-[80%] m-auto'>
-                    <ul className='flex justify-center items-center'>
-                        <div className='flex justify-between items-center'>
+                    <ul className='navbar-list flex justify-center items-center'>
+                        <div className='bar'>
                             <li className='mr-[2px]'><button onClick={showAlert} className='bg-yellow-300 flex items-center rounded-sm'><FontAwesomeIcon className='text-[22px] px-[8px] py-[4px]' icon={faBars} /></button></li>
                             <li className='mx-[10px] bg-yellow-300 p-[1.5px] flex items-center rounded-sm'><Link className='text-[22px]' to='/'>Oggo.az</Link></li>
                         </div>
 
-                        <div className='flex items-center mx-[60px]'>
+                        <div className='bar1 w-full'>
+                            <li className='mx-[10px] bg-yellow-300 p-[1.5px] flex items-center rounded-sm'><Link className='text-[22px]' to='/'>Oggo.az</Link></li>
+                            <li className='mr-[2px]'><button onClick={showAlert} className='bg-yellow-300 flex items-center rounded-sm'><FontAwesomeIcon className='text-[22px] px-[8px] py-[4px]' icon={faBars} /></button></li>
+                        </div>
+
+                        <div className='bar2 flex items-center mx-[60px]'>
                             <li onClick={showCatalog} className='flex items-center bg-yellow-300 text-[22px] px-[8px] py-[4px] rounded-sm cursor-pointer mx-[10px]'><button className='mr-[10px]'><FontAwesomeIcon icon={faBars} /></button> Katalog</li>
                             <div className='flex items-center border text-[10px] px-[5px] py-[5px] border-zinc-300 rounded-sm'>
                                 <div className='mr-[10px]'><FontAwesomeIcon className='text-gray-400 text-[20px]' icon={faMagnifyingGlass} /></div>
@@ -53,12 +58,12 @@ function navbar({ toggleBlur }) {
 
                         <div className={`favorites mr-[10px] ${showFavorites ? 'block' : 'hidden'}`}>
                             <button className='px-[8px] py-[4px] bg-yellow-300 rounded-sm text-[21px]'>
-                            <FontAwesomeIcon className='bg-transparent' icon={faHeart} />
+                                <FontAwesomeIcon className='bg-transparent' icon={faHeart} />
                             </button>
                         </div>
 
                         <div>
-                            <li className='flex items-center'>
+                            <li className='bar3 flex items-center'>
                                 <NavLink to='/advertisement' className='px-[8px] py-[4px] bg-yellow-300 rounded-sm text-[21px] mr-[10px]'><span><FontAwesomeIcon icon={faPlus} /></span>Yeni Elan</NavLink>
                                 <button onClick={toggleFavorites} className='px-[8px] py-[4px] bg-yellow-300 rounded-sm text-[21px]'><span><FontAwesomeIcon icon={faArrowRightToBracket} /></span>Daxil ol</button>
                             </li>

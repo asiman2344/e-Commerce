@@ -59,7 +59,7 @@ function CategoriesContainer() {
             </div>
 
             {/* min category */}
-            <div className='min-category'>
+            <div className='min-category w-full'>
                 <div className="min-category-wrapper flex justify-between items-center">
                     <div className='min-category-card w-[24%] border border-gray-200 p-[3px] rounded-md cursor-pointer shadow-lg'>
                         <Link><img className='w-[100%]' src={Minimg2} alt="" /></Link>

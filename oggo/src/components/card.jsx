@@ -1,6 +1,7 @@
 import React from 'react'
 import Truck from '../assets/truck.jpeg'
 import { useNavigate } from 'react-router-dom'
+import './component.css'
 
 function card() {
 
