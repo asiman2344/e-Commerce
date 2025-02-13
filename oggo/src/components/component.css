@@ -128,4 +128,20 @@
     .card-main .card{
         width: 345px;
     }
+
+    .advertisement{
+        width: 78%;
+    }
+
+    .advertisement-wrapper{
+        display: block;
+    }
+
+    .advertisement-wrapper-1{
+        width: 100%;
+    }
+
+    .advertisement-wrapper-2{
+        width: 100%;
+    }
 }

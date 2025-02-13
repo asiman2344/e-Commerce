@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import './component.css';
 
 function Advertisement() {
     const fileInputRef = useRef(null);
@@ -47,7 +48,7 @@ function Advertisement() {
     }
 
     return (
-        <div className='advertisement bg-gray-200 p-[3rem] absolute top-[100px] w-[52%]'>
+        <div className='advertisement bg-gray-200 p-[3rem] absolute top-[100px] w-[56%]'>
             <div className="advertisement-wrapper flex justify-between">
                 <div className="advertisement-wrapper-1 w-[65%]">
                     <div className="advertisement-title mb-[40px]">
