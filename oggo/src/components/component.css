@@ -69,6 +69,16 @@
 
 }
 
+.card-img img{
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.card-info{
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
 .slick-slide>div {
     margin: 0 5px;
 }

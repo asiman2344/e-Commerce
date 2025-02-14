@@ -1,14 +1,14 @@
 import React from 'react'
 import Navbar from './components/navbar.jsx'
 import GeneralContainer from './components/generalContainer.jsx'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
-  const [isBlurred,setIsBlurred]=useState(false);
+  const [isBlurred, setIsBlurred] = useState(false);
 
-  const toggleBlur=()=>{
+  const toggleBlur = () => {
     setIsBlurred(!isBlurred);
-  }
+  };
 
   return (
     <div>
