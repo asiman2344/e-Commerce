@@ -10,8 +10,8 @@ function card() {
 
     const navigate = useNavigate();
 
-    const handleCard = () => {
-        navigate('/card');
+    const handleCard = (item) => {
+        navigate('/card', { state: { item } });
     };
 
     const fetchData = async () => {
@@ -41,7 +41,7 @@ function card() {
                 </div>
                 <div className='card-main grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
                     {premium && premium.map((item, index) => (
-                        <div key={index} onClick={handleCard} className="card w-[248px] h-[260px] cursor-pointer">
+                        <div key={index} onClick={() => handleCard(item)} className="card w-[248px] h-[260px] cursor-pointer">
                             <div className='card-img w-[100%] h-[170px]'>
                                 <img className='w-[100%] h-[100%] object-cover' src={`https://oggo.site.az/uploads/${item.images[0].path}`} alt="" />
                             </div>
@@ -60,7 +60,7 @@ function card() {
                 </div>
                 <div className='card-main grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
                     {vip && vip.map((item, index) => (
-                        <div key={index} onClick={handleCard} className="card w-[248px] h-[260px] cursor-pointer">
+                        <div key={index} onClick={() => handleCard(item)} className="card w-[248px] h-[260px] cursor-pointer">
                             <div className='card-img w-[100%] h-[170px]'>
                                 <img className='w-[100%] h-[100%] object-cover' src={`https://oggo.site.az/uploads/${item.images[0].path}`} alt="" />
                             </div>
@@ -79,7 +79,7 @@ function card() {
                 </div>
                 <div className='card-main grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
                     {data && data.map((item, index) => (
-                        <div key={index} onClick={handleCard} className="card w-[248px] h-[260px] cursor-pointer">
+                        <div key={index} onClick={() => handleCard(item)} className="card w-[248px] h-[260px] cursor-pointer">
                             <div className='card-img w-[100%] h-[170px]'>
                                 <img className='w-[100%] h-[100%] object-cover' src={`https://oggo.site.az/uploads/${item.images[0].path}`} alt="" />
                             </div>

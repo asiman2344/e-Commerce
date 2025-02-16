@@ -9,8 +9,14 @@ import './component.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faSquare, faCrown, faCircle, faCalendarDays, faEye, faIdCard, faPaperPlane, faPhone } from '@fortawesome/free-solid-svg-icons';
 import Avatar from '../assets/default-avatar-BX0srjmE.png';
+import { useLocation } from 'react-router-dom';
 
 function cardInfo() {
+  const location = useLocation();
+  const { item } = location.state || {}
+
+  console.log(item, 'iteeeeeemmmmmmmmmmm');
+
 
   const settings = {
     dots: true,
@@ -35,29 +41,22 @@ function cardInfo() {
           <div className='w-[69%]'>
             <div className="cardInfo-img-wrapper border border-gray-300 items-center w-[100%] p-[20px] rounded-lg">
               <div className="cardInfo-img-title mb-[20px]">
-                <h1 className='text-[25px] font-medium'>Mercedes E 300 de</h1>
+                <h1 className='text-[25px] font-medium'>{item.title}</h1>
               </div>
               <div className="cardInfo-images ">
 
                 <Slider {...settings}>
-                  <div className="main-img">
-                    <div><img src={Truck} alt="" /></div>
-                  </div>
-
-                  <div className="main-img">
-                    <div><img src={Truck2} alt="" /></div>
-                  </div>
-
-                  <div className="main-img">
-                    <div><img src={Truck3} alt="" /></div>
-                  </div>
+                  {item?.images?.map((img, index) => (
+                    <div key={index} className="main-img">
+                      <div><img src={`https://oggo.site.az/uploads/${img.path}`} alt="" /></div>
+                    </div>
+                  ))}
                 </Slider>
                 <div className='sub-img'>
                   <Slider {...subSettings}>
-                    <div className='w-[24%]'><img src={Truck} alt="" /></div>
-                    <div className='w-[24%]'><img src={Truck2} alt="" /></div>
-                    <div className='w-[24%]'><img src={Truck2} alt="" /></div>
-                    <div className='w-[24%]'><img src={Truck3} alt="" /></div>
+                    {item?.images?.map((img, index) => (
+                      <div key={index} className='w-[24%]'><img src={`https://oggo.site.az/uploads/${img.path}`} alt="" /></div>
+                    ))}
                   </Slider>
                 </div>
               </div>
@@ -118,13 +117,13 @@ function cardInfo() {
 
               <div className='recommendation-person p-[15px] border border-gray-300 rounded-md'>
                 <div className='recommendation-person-title flex justify-between items-center mb-[20px]'>
-                  <span className='text-[20px] font-semibold'>150000.00 AZN</span>
+                  <span className='text-[20px] font-semibold'>{item?.price} AZN</span>
                   <span className='text-[13px]'><FontAwesomeIcon className='text-red-600' icon={faCircle} /> Offline</span>
                 </div>
 
                 <div className='recommendation-person-avatar flex justify-start items-center w-[70%] mb-[20px]'>
                   <div className='recommendation-img w-[100%] mr-[20px]'><img className='w-[100%]' src={Avatar} alt="" /></div>
-                  <span className='text-[24px] font-semibold'>AvtoAku.az</span>
+                  <span className='text-[24px] font-semibold'>{item?.user?.fullname}</span>
                 </div>
 
                 <div className='recommendation-person-info'>
@@ -135,7 +134,7 @@ function cardInfo() {
                     <FontAwesomeIcon className='mr-[10px]' icon={faEye} /><span>177 baxış</span>
                   </div>
                   <div className='recommendation-person-date text-[18px] p-[10px] border border-gray-300 rounded-md mb-[5px]'>
-                    <FontAwesomeIcon className='mr-[10px]' icon={faIdCard} /> <span>Elan kodu:1000026</span>
+                    <FontAwesomeIcon className='mr-[10px]' icon={faIdCard} /> <span>Elan kodu:{item?.user?.id}</span>
                   </div>
                 </div>
 
@@ -145,7 +144,7 @@ function cardInfo() {
                   </div>
 
                   <div className='w-[49%]'>
-                    <button  className='bg-[#f3c623] py-[6px] px-[12px] w-[100%] rounded-sm'><FontAwesomeIcon icon={faPhone} /></button>
+                    <button className='bg-[#f3c623] py-[6px] px-[12px] w-[100%] rounded-sm'><FontAwesomeIcon icon={faPhone} /></button>
                   </div>
                 </div>
               </div>
