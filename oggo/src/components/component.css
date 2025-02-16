@@ -93,6 +93,21 @@
     display: none;
 }
 
+.carousel-wrapper {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox üçün */
+    -ms-overflow-style: none; /* IE və Edge üçün */
+  }
+  
+  .carousel-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari və Opera üçün */
+  }
+  
+  .carousel-wrapper img {
+    pointer-events: none; /* Şəkillər üzərində drag problemi qarşısını almaq */
+  }
+
 /* .main-img{
     display: flex;
 }

@@ -6,11 +6,40 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faSquare, faCrown, faCircle, faCalendarDays, faEye, faIdCard, faPaperPlane, faPhone } from '@fortawesome/free-solid-svg-icons';
 import Avatar from '../assets/default-avatar-BX0srjmE.png';
 import { useLocation } from 'react-router-dom';
+import { useState,useRef } from 'react';
 
 function cardInfo() {
   const location = useLocation();
   const { item } = location.state || {};
   console.log(item);
+
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const carouselRef = useRef(null);
+
+  const handleMouseDown = (e) => {
+    e.preventDefault();
+    setIsDragging(true);
+    const carousel = carouselRef.current;
+    const startX = e.pageX - carousel.offsetLeft;
+    const scrollLeft = carousel.scrollLeft;
+    setStartX(startX);
+    setScrollLeft(scrollLeft);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const carousel = carouselRef.current;
+    const x = e.pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 2; // Sürükləmə sürəti
+    carousel.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
 
 
   return (
@@ -23,16 +52,34 @@ function cardInfo() {
                 <h1 className='text-[25px] font-medium'>{item?.title}</h1>
               </div>
               <div className="cardInfo-images">
-
-                <div className="carousel-wrapper h-[700px] mb-[20px] flex overflow-x-hidden">
-                  {
-                    item.images.map((img,index)=>(
-                      <div className='flex-shrink-0 w-[100%] h-full'><img className='w-full h-full object-contain' key={index} src={`https://oggo.site.az/uploads/${img.path}`} alt="" /></div>
-                    ))
-                  }
+                <div 
+                  ref={carouselRef}
+                  className="carousel-wrapper h-[700px] mb-[20px] flex overflow-x-hidden"
+                  onMouseDown={handleMouseDown}
+                  onMouseMove={handleMouseMove}
+                  onMouseUp={handleMouseUp}
+                  onMouseLeave={handleMouseUp}
+                  style={{ 
+                    cursor: isDragging ? 'grabbing' : 'grab',
+                    userSelect: 'none' 
+                  }}
+                >
+                  {item?.images?.map((img, index) => (
+                    <div 
+                      className='flex-shrink-0 w-[100%] h-full' 
+                      key={index}
+                    >
+                      <img 
+                        className='w-full h-full object-contain' 
+                        src={`https://oggo.site.az/uploads/${img.path}`} 
+                        alt="" 
+                        draggable="false" 
+                      />
+                    </div>
+                  ))}
                 </div>
-
               </div>
+
             </div>
             <div className='card-img-info border border-gray-300 w-[100%] mt-[50px] p-[20px] rounded-lg'>
               <ul>
