@@ -93,6 +93,22 @@
     display: none;
 }
 
+/* .main-img{
+    display: flex;
+}
+
+.main-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.sub-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+} */
+
 /* Mobil cihazlar için */
 @media (max-width: 768px) {
     .bar1 {

@@ -1,10 +1,6 @@
-import React from 'react'
-import Truck from '../assets/truck.jpeg'
-import Truck2 from '../assets/truck2.jpeg'
-import Truck3 from '../assets/truck3.jpeg'
+import React from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from 'react-slick';
 import './component.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faSquare, faCrown, faCircle, faCalendarDays, faEye, faIdCard, faPaperPlane, faPhone } from '@fortawesome/free-solid-svg-icons';
@@ -13,26 +9,9 @@ import { useLocation } from 'react-router-dom';
 
 function cardInfo() {
   const location = useLocation();
-  const { item } = location.state || {}
+  const { item } = location.state || {};
+  console.log(item);
 
-  console.log(item, 'iteeeeeemmmmmmmmmmm');
-
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
-
-  const subSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3
-  }
 
   return (
     <div>
@@ -41,24 +20,18 @@ function cardInfo() {
           <div className='w-[69%]'>
             <div className="cardInfo-img-wrapper border border-gray-300 items-center w-[100%] p-[20px] rounded-lg">
               <div className="cardInfo-img-title mb-[20px]">
-                <h1 className='text-[25px] font-medium'>{item.title}</h1>
+                <h1 className='text-[25px] font-medium'>{item?.title}</h1>
               </div>
-              <div className="cardInfo-images ">
+              <div className="cardInfo-images">
 
-                <Slider {...settings}>
-                  {item?.images?.map((img, index) => (
-                    <div key={index} className="main-img">
-                      <div><img src={`https://oggo.site.az/uploads/${img.path}`} alt="" /></div>
-                    </div>
-                  ))}
-                </Slider>
-                <div className='sub-img'>
-                  <Slider {...subSettings}>
-                    {item?.images?.map((img, index) => (
-                      <div key={index} className='w-[24%]'><img src={`https://oggo.site.az/uploads/${img.path}`} alt="" /></div>
-                    ))}
-                  </Slider>
+                <div className="carousel-wrapper h-[700px] mb-[20px] flex overflow-x-hidden">
+                  {
+                    item.images.map((img,index)=>(
+                      <div className='flex-shrink-0 w-[100%] h-full'><img className='w-full h-full object-contain' key={index} src={`https://oggo.site.az/uploads/${img.path}`} alt="" /></div>
+                    ))
+                  }
                 </div>
+
               </div>
             </div>
             <div className='card-img-info border border-gray-300 w-[100%] mt-[50px] p-[20px] rounded-lg'>
@@ -156,4 +129,4 @@ function cardInfo() {
   )
 }
 
-export default cardInfo
+export default cardInfo;
