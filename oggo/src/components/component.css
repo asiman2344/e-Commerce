@@ -112,6 +112,19 @@
     background-color: rgba(0, 0, 0, 0.6);
   }
 
+  .modal1{
+    top: 50%;
+    right: 36.863%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+  }
+
+  .modal2{
+    top: 50%;
+    right: 36.863%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+  }
 
 /* Mobil cihazlar için */
 @media (max-width: 768px) {
