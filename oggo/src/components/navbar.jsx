@@ -7,11 +7,9 @@ import { useState } from 'react';
 import './component.css'
 import Catalog from './catalog.jsx'
 
-function navbar({ toggleBlur }) {
+function navbar({ toggleBlur, enterPageFunc }) {
     const [show, setShow] = useState(false)
     const [handleCatalog, sethandleCatalog] = useState(false)
-    // const [phone, setPhone] = useState('');
-
 
     const showAlert = () => {
         setShow(!show)
@@ -23,11 +21,10 @@ function navbar({ toggleBlur }) {
         toggleBlur();
     }
 
-    // const handleChange = (e) => {
-    //     setPhone(e.target.value);
-    //     console.log(e.target.value);
+    const enterYourPage=()=>{
+        enterPageFunc();
+    }
 
-    // };
 
     return (
         <div className='relative'>
@@ -67,7 +64,7 @@ function navbar({ toggleBlur }) {
                         <div>
                             <li className='bar3 flex items-center'>
                                 <NavLink to='/advertisement' className='px-[8px] py-[4px] bg-yellow-300 rounded-sm text-[21px] mr-[10px]'><span><FontAwesomeIcon icon={faPlus} /></span>Yeni Elan</NavLink>
-                                <button className='px-[8px] py-[4px] bg-yellow-300 rounded-sm text-[21px]'><span><FontAwesomeIcon icon={faArrowRightToBracket} /></span>Daxil ol</button>
+                                <button onClick={enterYourPage} className='px-[8px] py-[4px] bg-yellow-300 rounded-sm text-[21px]'><span><FontAwesomeIcon icon={faArrowRightToBracket} /></span>Daxil ol</button>
                             </li>
                         </div>
 
