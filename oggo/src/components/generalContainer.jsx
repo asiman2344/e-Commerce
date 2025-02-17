@@ -23,6 +23,7 @@ function generalContainer({ isBlurred }) {
           {!isSubCategoryRoute && <Card />}
           <Outlet />
         </div>
+        
       </div>
     </div>
   )

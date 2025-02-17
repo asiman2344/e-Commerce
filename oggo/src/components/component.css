@@ -96,33 +96,22 @@
 .carousel-wrapper {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox üçün */
-    -ms-overflow-style: none; /* IE və Edge üçün */
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
   }
   
   .carousel-wrapper::-webkit-scrollbar {
-    display: none; /* Chrome, Safari və Opera üçün */
+    display: none; 
   }
   
   .carousel-wrapper img {
-    pointer-events: none; /* Şəkillər üzərində drag problemi qarşısını almaq */
+    pointer-events: none;
   }
 
-/* .main-img{
-    display: flex;
-}
+  .modal1-wrapper{
+    background-color: rgba(0, 0, 0, 0.6);
+  }
 
-.main-img img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.sub-img img {
-    width: 100%;
-    height: auto;
-    display: block;
-} */
 
 /* Mobil cihazlar için */
 @media (max-width: 768px) {

@@ -10,7 +10,7 @@ import Catalog from './catalog.jsx'
 function navbar({ toggleBlur }) {
     const [show, setShow] = useState(false)
     const [handleCatalog, sethandleCatalog] = useState(false)
-    const [showFavorites, setShowFavorites] = useState(false);
+    // const [phone, setPhone] = useState('');
 
 
     const showAlert = () => {
@@ -23,9 +23,11 @@ function navbar({ toggleBlur }) {
         toggleBlur();
     }
 
-    const toggleFavorites = () => {
-        setShowFavorites(!showFavorites);
-    };
+    // const handleChange = (e) => {
+    //     setPhone(e.target.value);
+    //     console.log(e.target.value);
+
+    // };
 
     return (
         <div className='relative'>
@@ -56,16 +58,16 @@ function navbar({ toggleBlur }) {
                             </li>
                         </div>
 
-                        <div className={`favorites mr-[10px] ${showFavorites ? 'block' : 'hidden'}`}>
+                        {/* <div className={`favorites mr-[10px] ${showFavorites ? 'block' : 'hidden'}`}>
                             <button className='px-[8px] py-[4px] bg-yellow-300 rounded-sm text-[21px]'>
                                 <FontAwesomeIcon className='bg-transparent' icon={faHeart} />
                             </button>
-                        </div>
+                        </div> */}
 
                         <div>
                             <li className='bar3 flex items-center'>
                                 <NavLink to='/advertisement' className='px-[8px] py-[4px] bg-yellow-300 rounded-sm text-[21px] mr-[10px]'><span><FontAwesomeIcon icon={faPlus} /></span>Yeni Elan</NavLink>
-                                <button onClick={toggleFavorites} className='px-[8px] py-[4px] bg-yellow-300 rounded-sm text-[21px]'><span><FontAwesomeIcon icon={faArrowRightToBracket} /></span>Daxil ol</button>
+                                <button className='px-[8px] py-[4px] bg-yellow-300 rounded-sm text-[21px]'><span><FontAwesomeIcon icon={faArrowRightToBracket} /></span>Daxil ol</button>
                             </li>
                         </div>
 
