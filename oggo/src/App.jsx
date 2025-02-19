@@ -17,7 +17,7 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(enterPage);
+    console.log(enterPage,'pppppppppppppppp');
   }, [enterPage])
 
   return (
